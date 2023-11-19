@@ -7,10 +7,11 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.Constants.QuestionOneConstants;
 import frc.robot.commands.DriveStraight;
+import frc.robot.commands.GyroElevator;
 import frc.robot.commands.RaiseElevator;
 import frc.robot.subsystems.ArcadeDriveTrain;
 import frc.robot.subsystems.Elevator;
-
+import frc.robot.subsystems.Gyroscope;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -33,6 +34,9 @@ public class RobotContainer {
 
   // question 2
   private final Elevator m_Elevator = new Elevator();
+
+  // question 4
+  private final Gyroscope m_Gyroscope = new Gyroscope();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -70,6 +74,8 @@ public class RobotContainer {
     Command cmd = new CommandBase() {}; // if nothing happens, return an empty command
     if (currProblem == 1) {
       cmd = new DriveStraight(QuestionOneConstants.moveVel, QuestionOneConstants.turnVel, m_arcadeDriveTrain);
+    } else if (currProblem == 4) {
+      cmd = new GyroElevator(m_Gyroscope);
     }
 
     return cmd;

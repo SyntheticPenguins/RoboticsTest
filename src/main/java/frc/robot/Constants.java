@@ -24,7 +24,12 @@ public final class Constants {
   }
 
   public static class QuestionTwoConstants {
-    // constants for question 2L
+    // constants for question 2:
     public static final double pwr = 1;
+  }
+
+  public static class QuestionFourConstants {
+    // constants for question 4:
+    public static final double[] idealOrientation = {0, 0, 0};
   }
 }
